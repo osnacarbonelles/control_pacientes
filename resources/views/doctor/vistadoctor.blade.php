@@ -67,6 +67,28 @@
         <h3>Nuevo Doctor</h3>
       </div>
     </div>
-  </div>
+  </div><!--Fin container-->
+  <script>
+    $(document).ready(function(){
+      var tablaDoctor = $('#tabla-doctor').DataTable({
+          processing:true,
+          serverSide:true,
+          ajax:{
+            url: "{{ route('doctor.vistadoctor') }}",
+          },
+          columns:[
+            {data: 'id'},
+            {data: 'nombre'},
+            {data: 'apellido'},
+            {data: 'direccion'},
+            {data: 'telefono'},
+            {data: 'tipo_sangre'},
+            {data: 'fecha_nacimiento'},
+            {data: 'anos_experiencia'},
+            {data: 'action', orderable: false}
+          ]
+      });
+    });
+  </script>
 </body>
 </html>
